@@ -14,6 +14,22 @@ https://hackerchess-web.h4ck.ctfcompetition.com/
 
 - Use load_baseboard() to load a winning game position by using a url to a hosted fen file.
 
+- Manipulate the base64 string for positions
+
+- Log into admin panel
+
+-----
+
+## Solution
+
+- Use load_baseboard() to load a winning game position by using a url to a hosted fen file.
+
+- PHP function fopen can recieve urls as filenames. https://www.php.net/manual/en/function.fopen.php
+
+- Edit the xhr form data of the 'filename' to a fen file hosted elsewhere with a winning position, the [Scholar's Mate](https://en.wikipedia.org/wiki/Scholar%27s_mate).
+
+- Used https://lichess.org/editor to get FEN
+
 ```javascript
 // original
 function load_baseboard() {
@@ -36,9 +52,6 @@ function load_baseboard() {
 
   xhr.open('POST', url, true)
   xhr.send(formData);
+  window.location.href = "index.php";
 }
 ```
-- Manipulate the base64 string for positions
-
-- Log into admin panel
-
