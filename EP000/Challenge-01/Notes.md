@@ -52,6 +52,6 @@ function load_baseboard() {
 
   xhr.open('POST', url, true)
   xhr.send(formData);
-  window.location.href = "index.php";
+  // window.location.href = "index.php";
 }
 ```
